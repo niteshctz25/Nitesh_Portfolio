@@ -139,6 +139,37 @@ pytest
 - `POST /api/contact` - contact form submission
 - `POST /api/seed-data` - seed initial MongoDB data
 
+## Deployment
+
+### Frontend (Vercel)
+
+1. Sign up at [vercel.com](https://vercel.com) with your GitHub account
+2. Click "New Project" and import your repository
+3. Configure:
+   - **Root Directory**: `frontend`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `build`
+   - **Install Command**: `npm install --legacy-peer-deps`
+4. Add environment variable: `REACT_APP_BACKEND_URL` with your backend URL
+5. Deploy
+
+### Backend (Railway)
+
+1. Sign up at [railway.app](https://railway.app)
+2. Create new project from GitHub repo
+3. Configure:
+   - **Root Directory**: `backend`
+   - Add MongoDB database to project
+4. Set environment variables:
+   - `MONGO_URL`: Your Railway MongoDB connection string
+   - `DB_NAME`: `portfolio_db`
+   - `CORS_ORIGINS`: Your Vercel frontend URL
+5. Deploy
+
+### Production Environment Setup
+
+After deployment, update the frontend's `REACT_APP_BACKEND_URL` in Vercel with the Railway backend URL.
+
 ## Repository Notes
 
 - The Emergent badge and dev overlay references have been removed from the app UI.
