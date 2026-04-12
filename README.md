@@ -141,7 +141,21 @@ pytest
 
 ## Deployment
 
-### Frontend (Vercel)
+### Option 1: Frontend Only (GitHub Pages) - Free
+
+1. Go to your GitHub repository settings
+2. Scroll to "Pages" section
+3. Set source to "GitHub Actions"
+4. Add repository secrets (Settings → Secrets and variables → Actions):
+   - `REACT_APP_BACKEND_URL`: Your backend URL (from Railway/Heroku/etc.)
+   - `CNAME`: Your custom domain (optional)
+5. Push to main branch - deployment will happen automatically via GitHub Actions
+
+Your frontend will be available at: `https://niteshctz25.github.io/Nitesh_Portfolio`
+
+### Option 2: Full Stack (Vercel + Railway)
+
+#### Frontend (Vercel)
 
 1. Sign up at [vercel.com](https://vercel.com) with your GitHub account
 2. Click "New Project" and import your repository
@@ -153,7 +167,7 @@ pytest
 4. Add environment variable: `REACT_APP_BACKEND_URL` with your backend URL
 5. Deploy
 
-### Backend (Railway)
+#### Backend (Railway)
 
 1. Sign up at [railway.app](https://railway.app)
 2. Create new project from GitHub repo
@@ -168,7 +182,7 @@ pytest
 
 ### Production Environment Setup
 
-After deployment, update the frontend's `REACT_APP_BACKEND_URL` in Vercel with the Railway backend URL.
+After deployment, update the frontend's `REACT_APP_BACKEND_URL` with your backend URL.
 
 ## Repository Notes
 
