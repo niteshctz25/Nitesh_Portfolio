@@ -141,48 +141,53 @@ pytest
 
 ## Deployment
 
-### Option 1: Frontend Only (GitHub Pages) - Free
+### Lifetime Free Hosting Setup
 
-1. Go to your GitHub repository settings
-2. Scroll to "Pages" section
-3. Set source to "GitHub Actions"
-4. Add repository secrets (Settings → Secrets and variables → Actions):
-   - `REACT_APP_BACKEND_URL`: Your backend URL (from Railway/Heroku/etc.)
-   - `CNAME`: Your custom domain (optional)
-5. Push to main branch - deployment will happen automatically via GitHub Actions
+This project is configured for **lifetime free hosting** using GitHub Pages (frontend) + Railway (backend).
 
-Your frontend will be available at: `https://niteshctz25.github.io/Nitesh_Portfolio`
+#### Step 1: Enable GitHub Pages (Frontend)
 
-### Option 2: Full Stack (Vercel + Railway)
+1. Go to your GitHub repository: https://github.com/niteshctz25/Nitesh_Portfolio
+2. Click **Settings** tab
+3. Scroll to **Pages** section
+4. Set **Source** to **"GitHub Actions"**
+5. Your frontend will be available at: `https://niteshctz25.github.io/Nitesh_Portfolio`
 
-#### Frontend (Vercel)
+#### Step 2: Deploy Backend to Railway (Free Tier)
 
-1. Sign up at [vercel.com](https://vercel.com) with your GitHub account
-2. Click "New Project" and import your repository
-3. Configure:
-   - **Root Directory**: `frontend`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `build`
-   - **Install Command**: `npm install --legacy-peer-deps`
-4. Add environment variable: `REACT_APP_BACKEND_URL` with your backend URL
-5. Deploy
-
-#### Backend (Railway)
-
-1. Sign up at [railway.app](https://railway.app)
-2. Create new project from GitHub repo
-3. Configure:
+1. Sign up at [railway.app](https://railway.app) (free account)
+2. Click **"New Project"** → **"Deploy from GitHub repo"**
+3. Select your `Nitesh_Portfolio` repository
+4. Configure the service:
    - **Root Directory**: `backend`
-   - Add MongoDB database to project
-4. Set environment variables:
-   - `MONGO_URL`: Your Railway MongoDB connection string
-   - `DB_NAME`: `portfolio_db`
-   - `CORS_ORIGINS`: Your Vercel frontend URL
-5. Deploy
+   - Railway will auto-detect FastAPI and MongoDB
+5. Add MongoDB database to your Railway project (free)
+6. Your backend will get a URL like: `https://your-project.up.railway.app`
 
-### Production Environment Setup
+#### Step 3: Connect Frontend to Backend
 
-After deployment, update the frontend's `REACT_APP_BACKEND_URL` with your backend URL.
+1. In your GitHub repo, go to **Settings** → **Secrets and variables** → **Actions**
+2. Add repository secret: `REACT_APP_BACKEND_URL` = your Railway backend URL
+3. Push any change to trigger deployment
+
+#### Step 4: Seed Database (Optional)
+
+Once backend is deployed, you can seed it with data:
+```bash
+curl -X POST https://your-railway-url.up.railway.app/api/seed-data
+```
+
+### Features of Free Lifetime Hosting:
+
+- **GitHub Pages**: Unlimited bandwidth, custom domain support
+- **Railway**: 512MB RAM, 1GB disk, perfect for portfolio APIs
+- **MongoDB**: 512MB free database from Railway
+- **Automatic deployments**: Push to main → auto-deploy
+- **No credit card required**
+
+### Alternative: Full Stack on Vercel + Railway
+
+If you prefer Vercel for frontend (better performance), follow the Option 2 instructions in the original README.
 
 ## Repository Notes
 
