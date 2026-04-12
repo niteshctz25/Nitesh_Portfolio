@@ -193,3 +193,5 @@ If you prefer Vercel for frontend (better performance), follow the Option 2 inst
 
 - The Emergent badge and dev overlay references have been removed from the app UI.
 - Local `.env` files, logs, and workspace-specific tooling files should stay out of version control.
+
+Updated deployment
