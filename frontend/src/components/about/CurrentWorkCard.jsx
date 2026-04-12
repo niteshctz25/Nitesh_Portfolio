@@ -1,0 +1,19 @@
+import { Card, CardContent } from '../ui/card';
+
+const CurrentWorkCard = () => {
+  return (
+    <Card className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 border-blue-500/30">
+      <CardContent className="p-6">
+        <h4 className="text-lg font-semibold text-gray-100 mb-2 flex items-center gap-2">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+          Currently Working On
+        </h4>
+        <p className="text-gray-300 text-sm leading-relaxed">
+          Building AI-powered test automation using LLMs and AI agents to increase QA productivity and coverage for driver and connector testing.
+        </p>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default CurrentWorkCard;
