@@ -1,23 +1,22 @@
-# Nitesh Singh - JARVIS-Inspired Portfolio
+# Nitesh Singh - Portfolio
 
-A stunning, futuristic portfolio website with JARVIS-style UI, featuring real-time GitHub integration, MongoDB backend, and advanced animations.
+A full-stack portfolio website featuring real-time GitHub integration, MongoDB backend, and smooth animations.
 
-## 🌟 Features
+## Features
 
-- **JARVIS-Inspired Design**: Futuristic UI with particle effects, rotating HUD rings, glowing elements
-- **Real GitHub Integration**: Automatically fetches and displays your latest repositories
-- **MongoDB Backend**: Dynamic content management system
-- **Modern Tech Stack**: React, FastAPI, MongoDB, Framer Motion
-- **Fully Responsive**: Works perfectly on all devices
-- **Advanced Animations**: Smooth scroll, typing effects, particle backgrounds
+- Professional design with animated transitions and scroll effects
+- Real GitHub integration that fetches and displays latest repositories
+- MongoDB backend for dynamic content management
+- Fully responsive across all devices
+- Contact form with email notifications
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - React 19
 - Framer Motion (animations)
 - Tailwind CSS
-- Shadcn UI components
+- Shadcn UI components (Radix primitives)
 - Lucide React (icons)
 - Axios (API calls)
 
@@ -27,10 +26,10 @@ A stunning, futuristic portfolio website with JARVIS-style UI, featuring real-ti
 - Python 3.11+
 - GitHub API integration
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
-- Node.js 16+ and Yarn
+- Node.js 16+ and npm
 - Python 3.11+
 - MongoDB (local or MongoDB Atlas)
 
@@ -38,17 +37,17 @@ A stunning, futuristic portfolio website with JARVIS-style UI, featuring real-ti
 
 ```bash
 cd frontend
-yarn install
+npm install --legacy-peer-deps
 ```
 
-Create `.env` file in frontend directory:
+Create `.env` file in the frontend directory:
 ```env
 REACT_APP_BACKEND_URL=http://localhost:8001
 ```
 
-Start development server:
+Start the development server:
 ```bash
-yarn start
+npm start
 ```
 
 ### Backend Setup
@@ -60,39 +59,39 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Create `.env` file in backend directory:
+Create `.env` file in the backend directory:
 ```env
 MONGO_URL=mongodb://localhost:27017
 DB_NAME=portfolio_db
 ```
 
-Start backend server:
+Start the backend server:
 ```bash
 uvicorn server:app --reload --host 0.0.0.0 --port 8001
 ```
 
-## 🚀 Deployment
+## Deployment
 
-### Frontend (Vercel/Netlify)
+### Frontend (GitHub Pages / Vercel / Netlify)
 1. Build the frontend:
    ```bash
    cd frontend
-   yarn build
+   npm run build
    ```
-2. Deploy the `build` folder to Vercel/Netlify
+2. Deploy the `build` folder to your hosting provider
 3. Set environment variable: `REACT_APP_BACKEND_URL` to your backend URL
 
-### Backend (Railway/Render/DigitalOcean)
-1. Deploy backend with MongoDB connection
-2. Set environment variables:
+### Backend (Railway / Render)
+1. Deploy backend from GitHub
+2. Add a MongoDB database
+3. Set environment variables:
    - `MONGO_URL`: Your MongoDB connection string
-   - `DB_NAME`: Database name
+   - `DB_NAME`: Database name (e.g. `portfolio_db`)
 
-## 📝 Customization
+## Customization
 
 ### Update Personal Information
-Edit the MongoDB collection `portfolio_data` or modify initial seed data in:
-`backend/services/portfolio_service.py`
+Edit the seed data in `backend/services/portfolio_service.py` or update via the MongoDB collection `portfolio_data`.
 
 ### Change GitHub Username
 Update in `backend/server.py`:
@@ -100,61 +99,50 @@ Update in `backend/server.py`:
 github_service = GitHubService(username="YOUR_GITHUB_USERNAME")
 ```
 
-### Modify Colors/Theme
-Edit color variables in:
-- `frontend/src/styles/jarvis.css`
+### Modify Theme
+Edit styles in:
 - `frontend/tailwind.config.js`
+- `frontend/src/styles/professional.css`
 
 ### Add New Sections
-1. Create new component in `frontend/src/components/`
-2. Import and add to `frontend/src/App.js`
-3. Add corresponding API endpoint in `backend/server.py` if needed
+1. Create a new component in `frontend/src/components/`
+2. Import and add it to `frontend/src/App.js`
+3. Add a corresponding API endpoint in `backend/server.py` if needed
 
-## 🎨 Design Guidelines
+## API Endpoints
 
-- Uses cyan/blue color scheme (#00d4ff, #00ffff)
-- NO purple/pink gradients
-- Lucide-react icons only (NO emojis)
-- Glass morphism effects
-- Particle animations
-- Smooth scroll behavior
+| Method | Path             | Description                  |
+| ------ | ---------------- | ---------------------------- |
+| GET    | `/api/`          | Health check                 |
+| GET    | `/api/projects`  | Fetch GitHub repositories    |
+| GET    | `/api/portfolio` | Get all portfolio data       |
+| POST   | `/api/contact`   | Submit contact form          |
+| POST   | `/api/seed-data` | Initialize database          |
 
-## 📡 API Endpoints
+## Troubleshooting
 
-- `GET /api/` - Health check
-- `GET /api/projects` - Fetch GitHub repositories
-- `GET /api/portfolio` - Get all portfolio data
-- `POST /api/contact` - Submit contact form
-- `POST /api/seed-data` - Initialize database
-
-## 🔧 Troubleshooting
-
-### Frontend Issues
+### Frontend
 - Clear browser cache and reload
-- Delete `node_modules` and run `yarn install` again
-- Check console for errors
+- Delete `node_modules` and run `npm install --legacy-peer-deps` again
+- Check the browser console for errors
 
-### Backend Issues
-- Verify MongoDB connection
-- Check backend logs
+### Backend
+- Verify MongoDB is running and connection string is correct
+- Check backend logs for stack traces
 - Ensure all environment variables are set
 
 ### GitHub API Rate Limits
-- GitHub API allows 60 requests/hour (unauthenticated)
+- Unauthenticated: 60 requests/hour
 - Projects are cached in MongoDB to reduce API calls
-- Consider adding GitHub token for higher limits
+- Add a GitHub token in your environment for higher rate limits
 
-## 📄 License
-
-MIT License - Feel free to use this template for your own portfolio!
-
-## 👨‍💻 Author
+## Author
 
 **Nitesh Singh**
 - GitHub: [@niteshctz25](https://github.com/niteshctz25)
 - LinkedIn: [Nitesh Singh](https://www.linkedin.com/in/nitesh-singh-3505861a2/)
 - Email: niteshsingh15151@gmail.com
 
----
+## License
 
-Built with ❤️ using React, FastAPI, and MongoDB
+MIT
