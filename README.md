@@ -1,39 +1,55 @@
 # Nitesh Portfolio
 
-Full-stack portfolio website built with React on the frontend and FastAPI on the backend. The project showcases personal information, featured projects, technologies, roadmap items, certificates, and a contact flow.
+Full-stack portfolio website built with React 19 and FastAPI. Showcases personal information, GitHub projects, technologies, learning roadmap, certificates, and a contact form with email notifications.
+
+**Live:** [niteshctz25.github.io/Nitesh_Portfolio](https://niteshctz25.github.io/Nitesh_Portfolio)
 
 ## Tech Stack
 
-- Frontend: React 19, CRACO, Tailwind CSS, Framer Motion, Radix UI
-- Backend: FastAPI, Motor, MongoDB
-- Data sources: MongoDB for portfolio data, GitHub API for project data
+| Layer    | Technologies                                                       |
+| -------- | ------------------------------------------------------------------ |
+| Frontend | React 19, CRACO, Tailwind CSS, Framer Motion, Radix UI, Shadcn UI |
+| Backend  | FastAPI, Motor (async MongoDB driver), Pydantic                    |
+| Database | MongoDB                                                            |
+| Data     | GitHub API for projects, MongoDB for portfolio content             |
 
 ## Features
 
-- Responsive portfolio landing page
-- Animated hero and section transitions
-- GitHub project integration with fallback mock data
-- Portfolio data API for personal info, technologies, roadmap, and certificates
-- Contact form endpoint
-- Certificate category routing
+- Responsive portfolio with smooth section transitions and scroll progress
+- Real-time GitHub project integration with mock-data fallback
+- Portfolio data API (personal info, technologies, roadmap, certificates)
+- Contact form with MongoDB persistence and email notification
+- Certificate category routing via React Router
+- Loading screen with animated entry
 
 ## Project Structure
 
 ```text
 .
-|-- frontend/
-|   |-- public/
-|   |-- src/
-|   |-- package.json
-|   `-- craco.config.js
-|-- backend/
-|   |-- services/
-|   |-- tests/
-|   |-- server.py
-|   `-- requirements.txt
-|-- tests/
-|-- backend_test.py
-`-- QUICK_START.txt
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/       # Page sections and UI components
+│   │   ├── services/api.js   # Backend API client
+│   │   ├── data/             # Static certificate data
+│   │   ├── hooks/            # Custom React hooks
+│   │   ├── lib/              # Utility functions
+│   │   ├── styles/           # CSS theme files
+│   │   ├── App.js
+│   │   └── mock.js           # Fallback data when backend is offline
+│   ├── plugins/              # CRACO webpack plugins
+│   ├── package.json
+│   └── craco.config.js
+├── backend/
+│   ├── services/
+│   │   ├── github_service.py
+│   │   └── portfolio_service.py
+│   ├── tests/
+│   ├── models.py
+│   ├── server.py
+│   └── requirements.txt
+├── tests/
+└── QUICK_START.txt
 ```
 
 ## Local Setup
@@ -53,17 +69,17 @@ npm install --legacy-peer-deps
 REACT_APP_BACKEND_URL=http://localhost:8001
 ```
 
-3. Start the frontend:
+3. Start the dev server:
 
 ```bash
 npm start
 ```
 
-The frontend runs on `http://localhost:3000`.
+Runs on `http://localhost:3000`.
 
 ### Backend
 
-1. Install Python 3.11+.
+1. Requires Python 3.11+ and a running MongoDB instance.
 
 2. Create and activate a virtual environment:
 
@@ -84,7 +100,7 @@ macOS/Linux:
 source venv/bin/activate
 ```
 
-3. Install backend dependencies:
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -98,100 +114,85 @@ DB_NAME=portfolio_db
 CORS_ORIGINS=*
 ```
 
-5. Start the backend:
+5. Start the server:
 
 ```bash
 uvicorn server:app --reload --port 8001
 ```
 
-The backend runs on `http://localhost:8001`, with the API available under `http://localhost:8001/api`.
+Runs on `http://localhost:8001`. API base path: `/api`.
 
 ## Important Notes
 
-- The frontend can fall back to mock data if the backend is unavailable.
-- The backend expects MongoDB to be running locally unless you change `MONGO_URL`.
-- Project data is fetched from the GitHub account configured in `backend/server.py`.
+- The frontend falls back to mock data when the backend is unreachable.
+- MongoDB must be running locally unless `MONGO_URL` points elsewhere.
+- The GitHub username is configured in `backend/server.py` (`GitHubService(username="niteshctz25")`).
 
-## Helpful Commands
+## Useful Commands
 
-Frontend:
+| Action         | Command                                     |
+| -------------- | ------------------------------------------- |
+| Frontend start | `cd frontend && npm start`                  |
+| Frontend test  | `cd frontend && npm test`                   |
+| Frontend build | `cd frontend && npm run build`              |
+| Backend start  | `cd backend && uvicorn server:app --reload --port 8001` |
+| Backend test   | `cd backend && pytest`                      |
+| Deploy to GH Pages | `cd frontend && npm run deploy`         |
 
-```bash
-cd frontend
-npm start
-npm test
-npm run build
-```
+## API Endpoints
 
-Backend:
-
-```bash
-cd backend
-uvicorn server:app --reload --port 8001
-pytest
-```
-
-## API Overview
-
-- `GET /api/` - health check
-- `GET /api/projects` - GitHub-backed project list
-- `GET /api/portfolio` - portfolio data
-- `POST /api/contact` - contact form submission
-- `POST /api/seed-data` - seed initial MongoDB data
+| Method | Path             | Description                  |
+| ------ | ---------------- | ---------------------------- |
+| GET    | `/api/`          | Health check                 |
+| GET    | `/api/projects`  | GitHub-backed project list   |
+| GET    | `/api/portfolio` | Full portfolio data          |
+| POST   | `/api/contact`   | Contact form submission      |
+| POST   | `/api/seed-data` | Seed initial MongoDB data    |
 
 ## Deployment
 
-### Lifetime Free Hosting Setup
+### GitHub Pages (Frontend) + Railway (Backend)
 
-This project is configured for **lifetime free hosting** using GitHub Pages (frontend) + Railway (backend).
+#### 1. Enable GitHub Pages
 
-#### Step 1: Enable GitHub Pages (Frontend)
+1. Go to **Settings > Pages** in your GitHub repository
+2. Set **Source** to **GitHub Actions**
+3. Frontend will be available at `https://niteshctz25.github.io/Nitesh_Portfolio`
 
-1. Go to your GitHub repository: https://github.com/niteshctz25/Nitesh_Portfolio
-2. Click **Settings** tab
-3. Scroll to **Pages** section
-4. Set **Source** to **"GitHub Actions"**
-5. Your frontend will be available at: `https://niteshctz25.github.io/Nitesh_Portfolio`
+#### 2. Deploy Backend to Railway
 
-#### Step 2: Deploy Backend to Railway (Free Tier)
+1. Sign up at [railway.app](https://railway.app)
+2. Create a new project from your GitHub repo
+3. Set **Root Directory** to `backend`
+4. Add a MongoDB database to the project
+5. Railway provides a URL like `https://your-project.up.railway.app`
 
-1. Sign up at [railway.app](https://railway.app) (free account)
-2. Click **"New Project"** → **"Deploy from GitHub repo"**
-3. Select your `Nitesh_Portfolio` repository
-4. Configure the service:
-   - **Root Directory**: `backend`
-   - Railway will auto-detect FastAPI and MongoDB
-5. Add MongoDB database to your Railway project (free)
-6. Your backend will get a URL like: `https://your-project.up.railway.app`
+#### 3. Connect Frontend to Backend
 
-#### Step 3: Connect Frontend to Backend
+1. In GitHub repo **Settings > Secrets and variables > Actions**, add:
+   - `REACT_APP_BACKEND_URL` = your Railway backend URL
+2. Push any change to trigger redeployment
 
-1. In your GitHub repo, go to **Settings** → **Secrets and variables** → **Actions**
-2. Add repository secret: `REACT_APP_BACKEND_URL` = your Railway backend URL
-3. Push any change to trigger deployment
+#### 4. Seed Database (Optional)
 
-#### Step 4: Seed Database (Optional)
-
-Once backend is deployed, you can seed it with data:
 ```bash
 curl -X POST https://your-railway-url.up.railway.app/api/seed-data
 ```
 
-### Features of Free Lifetime Hosting:
+### Hosting Benefits
 
-- **GitHub Pages**: Unlimited bandwidth, custom domain support
-- **Railway**: 512MB RAM, 1GB disk, perfect for portfolio APIs
-- **MongoDB**: 512MB free database from Railway
-- **Automatic deployments**: Push to main → auto-deploy
+- **GitHub Pages**: Free, unlimited bandwidth, custom domain support
+- **Railway Free Tier**: 512 MB RAM, 1 GB disk, built-in MongoDB
+- **Auto-deploy**: Push to main triggers both frontend and backend deploys
 - **No credit card required**
 
-### Alternative: Full Stack on Vercel + Railway
+## Author
 
-If you prefer Vercel for frontend (better performance), follow the Option 2 instructions in the original README.
+**Nitesh Singh**
+- GitHub: [@niteshctz25](https://github.com/niteshctz25)
+- LinkedIn: [Nitesh Singh](https://www.linkedin.com/in/nitesh-singh-3505861a2/)
+- Email: niteshsingh15151@gmail.com
 
-## Repository Notes
+## License
 
-- The Emergent badge and dev overlay references have been removed from the app UI.
-- Local `.env` files, logs, and workspace-specific tooling files should stay out of version control.
-
-Updated deployment
+MIT
