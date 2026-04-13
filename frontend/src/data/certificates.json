@@ -1,0 +1,177 @@
+{
+  "seminars": {
+    "title": "Seminar Certificates",
+    "description": "Technical seminars, conferences, and workshops attended",
+    "folderUrl": "https://drive.google.com/drive/u/0/folders/10dYrbLYNC1rEgKjqarOy8LIK_j_1jQcW",
+    "certificates": [
+      {
+        "id": 1,
+        "name": "Gen AI Engineering Mastermind",
+        "issuer": "Conference/Workshop",
+        "date": "2024",
+        "url": "https://drive.google.com/open?id=15Wz5ggOqvIcZ7GDIAUUfSt_aICTApkDN"
+      },
+      {
+        "id": 2,
+        "name": "icSoftComp2021 Conference Participation",
+        "issuer": "International Conference",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1TPngFmwSkCReHh8v3NEU2lpY5TWG6zJ0"
+      },
+      {
+        "id": 3,
+        "name": "IPDIMS 2021 Conference Participation",
+        "issuer": "International Conference",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1-olbrA_MqxBjA8Xvrh6Nz0FrNJtyPEf-"
+      },
+      {
+        "id": 4,
+        "name": "Demystifying the Data Webinar",
+        "issuer": "Technical Webinar",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1NZFueAAQ-k6KuNZLcl6PXZK7hi94o4d0"
+      },
+      {
+        "id": 5,
+        "name": "National Education Policy 2020 Seminar",
+        "issuer": "National Seminar",
+        "date": "2020",
+        "url": "https://drive.google.com/open?id=1Ks9gxAJoJ8lnm7TLk_W2OEb6lHnmxNGI"
+      },
+      {
+        "id": 6,
+        "name": "ICETET Conference Participation",
+        "issuer": "International Conference",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1OYzeea4JT449D5bNO94nQtuWGNcxMA1m"
+      }
+    ]
+  },
+  "internships": {
+    "title": "Internship Certificates",
+    "description": "Professional internship completion certificates and virtual programs",
+    "folderUrl": "https://drive.google.com/drive/u/0/folders/1Pvjs0o6fNOg8q-JRrgQTwklzvFLFqSWK",
+    "certificates": [
+      {
+        "id": 1,
+        "name": "Cybersecurity Virtual Internship Program",
+        "issuer": "Virtual Internship",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1nEIUf0Q2faZU9_L7dBQvJ6yn_L3tYaUu"
+      },
+      {
+        "id": 2,
+        "name": "Techlearn Campus Leader Internship",
+        "issuer": "Techlearn",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1uFSXah_9o2f7pqb0fBkByOLNrkG8XJoy"
+      },
+      {
+        "id": 3,
+        "name": "Palo Alto Cybersecurity Foundation",
+        "issuer": "Palo Alto Networks",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1Ed5tY4V1DbsVNIcvqBnTY5XGPtM2wzFc"
+      },
+      {
+        "id": 4,
+        "name": "AICTE Cyber Security Virtual Internship",
+        "issuer": "AICTE",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1e-4E_OlUgPYC2f47IMsptq8D8Z3ixAWq"
+      },
+      {
+        "id": 5,
+        "name": "AICTE Data Analytics Virtual Internship",
+        "issuer": "AICTE",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1l_KETwlpSbldR343I_VhkEENHn-2vjm6"
+      },
+      {
+        "id": 6,
+        "name": "SISTMR Australia Cyber Security Internship",
+        "issuer": "SISTMR Australia",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1RHFCejl6Az978EAu24GrBKLOOQloF824"
+      }
+    ]
+  },
+  "courses": {
+    "title": "Courses & Training Certificates",
+    "description": "Online courses, training programs, and professional certifications",
+    "folderUrl": "https://drive.google.com/drive/u/0/folders/1TNeVm1aQZYyo4BBBGK66KIAN7u8MgdFJ",
+    "certificates": [
+      {
+        "id": 1,
+        "name": "Core Java Deep Dive with Practical Examples",
+        "issuer": "Online Learning",
+        "date": "2020",
+        "url": "https://drive.google.com/open?id=170jaooKMm8dwwVEONyJHMgEFi2DrMtl6"
+      },
+      {
+        "id": 2,
+        "name": "HTML5 Ultimate Course",
+        "issuer": "Online Learning",
+        "date": "2020",
+        "url": "https://drive.google.com/open?id=1YkQVNU_8R2c7qBxbuIKXoRilx8lUuGXv"
+      },
+      {
+        "id": 3,
+        "name": "CSS And JavaScript Complete Course For Beginners",
+        "issuer": "Online Learning",
+        "date": "2020",
+        "url": "https://drive.google.com/open?id=1O_zg73utm48sQBFgAJkSaqnDtEFDfVKQ"
+      },
+      {
+        "id": 4,
+        "name": "Learn JavaScript - For Beginners",
+        "issuer": "Online Learning",
+        "date": "2020",
+        "url": "https://drive.google.com/open?id=13HCfJLqlrbMkN54f9MsCETzjY-HaOaoC"
+      },
+      {
+        "id": 5,
+        "name": "Fundamentals on Digital Marketing",
+        "issuer": "Online Learning",
+        "date": "2020",
+        "url": "https://drive.google.com/open?id=16svYSpjNBFy4o4zGf62lRJkOlviAcTMS"
+      },
+      {
+        "id": 6,
+        "name": "JavaScript (Progate Learning Weekend)",
+        "issuer": "Progate",
+        "date": "2020",
+        "url": "https://drive.google.com/open?id=1dztAOOfmfFs6yPPbzjJU_K9HK-HWh9ro"
+      },
+      {
+        "id": 7,
+        "name": "Programming for Everybody (Getting Started with Python)",
+        "issuer": "Coursera",
+        "date": "2019",
+        "url": "https://drive.google.com/open?id=1e7fsst3R7Efv13lnQZ2_L-KfZepCwweo"
+      },
+      {
+        "id": 8,
+        "name": "The Joy of Computing using Python",
+        "issuer": "NPTEL",
+        "date": "2020",
+        "url": "https://drive.google.com/open?id=1c2xhdyrfSlxD8JviUDUKDQCX-s7mO6fc"
+      },
+      {
+        "id": 9,
+        "name": "CCNAv7: Introduction to Networks",
+        "issuer": "Cisco Networking Academy",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=11fz7FADBBou8XyqXMCX_6VVqUWK6v11g"
+      },
+      {
+        "id": 10,
+        "name": "Introduction to Cybersecurity",
+        "issuer": "Cisco Networking Academy",
+        "date": "2021",
+        "url": "https://drive.google.com/open?id=1iA9P3G5UQSIi9jIRZqj4M55MFIH8EKOh"
+      }
+    ]
+  }
+}
