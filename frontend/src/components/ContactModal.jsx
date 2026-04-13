@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Mail, MapPin, Send, Instagram, Linkedin, Loader2, CheckCircle } from 'lucide-react';
-import { portfolioAPI } from '../services/api';
 
 const ContactModal = ({ isOpen, onClose, personalInfo }) => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -18,23 +17,36 @@ const ContactModal = ({ isOpen, onClose, personalInfo }) => {
     setErrorMsg('');
 
     try {
-      await portfolioAPI.submitContact(formData);
+      // Use Formsubmit.co — free, no signup, sends email directly
+      const response = await fetch('https://formsubmit.co/ajax/niteshsingh15151@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Portfolio Contact from ${formData.name}`,
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed');
+
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
       setTimeout(() => {
         setStatus('idle');
         onClose();
-      }, 2000);
+      }, 2500);
     } catch {
-      // Fallback: open mailto link
-      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-      window.open(`mailto:${personalInfo.email}?subject=${subject}&body=${body}`, '_blank');
-      setStatus('success');
+      setErrorMsg('Something went wrong. Opening email client instead...');
       setTimeout(() => {
+        const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+        const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+        window.open(`mailto:${personalInfo.email}?subject=${subject}&body=${body}`, '_blank');
         setStatus('idle');
+        setErrorMsg('');
         onClose();
-      }, 2000);
+      }, 1500);
     }
   };
 
